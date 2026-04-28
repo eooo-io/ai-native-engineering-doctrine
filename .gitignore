@@ -1,0 +1,10 @@
+# Local Claude Code state (per-user, never committed)
+.claude/settings.local.json
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
