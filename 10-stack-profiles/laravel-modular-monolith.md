@@ -1,5 +1,7 @@
 # Stack Profile: Laravel Modular Monolith
 
+One opinionated bundle, not a starting default. Pick, edit, replace, or delete based on your context.
+
 ## Use when
 
 - The product needs fast iteration.

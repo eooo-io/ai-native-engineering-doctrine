@@ -1,10 +1,8 @@
 # AI-Native Engineering Harness
 
-A public-safe scaffolding for a portable engineering standards, agent-skills, and review-policy system.
+A doctrine-only scaffold for engineering standards, agent skills, and review policies that travels between projects.
 
-This repository is intended to act as a reusable operating layer for modern software work: coding conventions, architecture principles, delivery rules, agent instructions, review rubrics, and interview-ready proof artifacts.
-
-It is deliberately vendor-neutral. Tool-specific files such as `SKILL.md`, `AGENTS.md`, Cursor rules, Copilot instructions, Claude skills, and Codex skills should be generated or adapted from the canonical material in this harness.
+This is a **fork-and-curate seed**, not a runnable tool. Forkers copy the repo, shape it into their own personal or team version, and carry the result into projects, interviews, contracts, or roles. The harness ships principles, conventions, skills, and adapters as text. Nothing here executes, generates, or validates anything.
 
 ## Purpose
 
@@ -30,42 +28,29 @@ Use it as a portfolio-safe base. Keep sensitive examples, private prompts, clien
 07-security-and-secrets/     Security, secrets, dependency, and supply-chain rules
 08-review-rubrics/           Code, architecture, test, and security review rubrics
 09-interview-proof-pack/     Interview narratives, matrices, and portfolio talk tracks
-10-stack-profiles/           Opinionated stack bundles for real work
-scripts/                     Placeholder scripts for generation and validation
+10-stack-profiles/           Opinionated stack bundles (peer options, not defaults)
 ```
+
+## How to adopt this
+
+1. Fork the repo, or grab a tarball — whichever feels less like inheritance and more like raw material.
+2. Read `01-engineering-canon/` first. That's the doctrine layer. Keep what fits, rewrite what doesn't.
+3. Treat `02` through `08` as a doctrine library. Most teams will use 60–80% as-is and rewrite the rest.
+4. Treat `05-tool-adapters/` as the bridge between doctrine and AI tooling. Claude is the **reference adapter** — the deepest worked example. Cursor, Copilot, Codex, and the generic `AGENTS.md` are intentionally lighter sketches, scaled to what each tool actually consumes. Extend them yourself if you live in one of those tools.
+5. Treat `10-stack-profiles/` as opinionated bundles for real work, presented as peer options. Pick one, blend two, or write your own.
+6. Treat `09-interview-proof-pack/` as the public-facing explanation layer if you use the harness as a portfolio.
+7. Keep private extensions, client-specific examples, and proprietary doctrine in a private vault — not in your public fork.
+
+**Doctrine here is the seed, not the canonical source.** Anything you copy into a downstream project must work standalone — downstream forks should not assume access to this repo.
 
 ## Core positioning
 
 I maintain a portable AI-native engineering standards system that turns architecture principles, coding conventions, security rules, and review policies into tool-specific instructions for coding agents and human teams.
 
-## Usage model
-
-1. Treat `01-engineering-canon` as the source of durable principles.
-2. Treat `02` through `08` as the practical doctrine library.
-3. Treat `05-tool-adapters` as generated or adapted outputs for specific AI tools.
-4. Treat `09-interview-proof-pack` as the public-facing explanation layer.
-5. Keep private extensions in a vault, not in the public repo.
-
-## Suggested workflow
-
-```bash
-# review structure
-find . -maxdepth 2 -type f | sort
-
-# later, generate adapters from canon
-node scripts/generate-adapters.js
-
-# later, validate required docs exist
-node scripts/validate-harness.js
-```
-
 ## Non-goals
 
-This is not a replacement for project-specific architecture decisions.
-It is not a credential dump.
-It is not a prompt zoo.
-It is not a magic productivity talisman, because those are usually just YAML with delusions of grandeur.
+This is not a replacement for project-specific architecture decisions. It is not a credential dump. It is not a prompt zoo. It is not a magic productivity talisman, because those are usually just YAML with delusions of grandeur.
 
 ## License
 
-Choose a license before publishing. MIT is fine for broad reuse. Apache-2.0 is stronger if patent language matters. Keep private materials private.
+MIT. See [`LICENSE`](./LICENSE). Keep private materials private.
