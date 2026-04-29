@@ -3,11 +3,11 @@ name: architecture-review
 description: Review architecture decisions, boundaries, trade-offs, scalability, and operational risk.
 ---
 
-# Architecture Review Skill
+# Architecture Review
 
 ## Purpose
 
-Evaluate whether a design fits the problem, constraints, team, and operational environment.
+Evaluate whether a proposed or existing design fits the problem, the constraints, the team, and the operational environment. The output is structured feedback a designer can act on, not a verdict.
 
 ## Checklist
 
@@ -36,3 +36,10 @@ Evaluate whether a design fits the problem, constraints, team, and operational e
 
 ## Recommended next step
 ```
+
+## Rules
+
+- Tie each risk and trade-off to a constraint, not to taste.
+- Mark uncertainty explicitly; don't smuggle assumptions past the reader.
+- Prefer "missing decision" over "wrong decision" when the design hasn't named the trade-off yet.
+- Do not invent product or business requirements.

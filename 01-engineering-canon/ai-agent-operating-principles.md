@@ -14,6 +14,7 @@ Agents are force multipliers, not owners. Humans remain responsible for intent, 
 - Prefer small, reviewable changes over sprawling autonomous edits.
 - Do not allow agents to invent facts, APIs, library behavior, or business requirements.
 - Treat generated code as untrusted until reviewed and tested.
+- Bound agent permissions deliberately; see `permission-boundaries.md`.
 
 ## Useful agent roles
 

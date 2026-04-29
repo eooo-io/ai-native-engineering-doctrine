@@ -41,6 +41,8 @@ Use it as a portfolio-safe base. Keep sensitive examples, private prompts, clien
 6. Treat `09-interview-proof-pack/` as the public-facing explanation layer if you use the harness as a portfolio.
 7. Keep private extensions, client-specific examples, and proprietary doctrine in a private vault — not in your public fork.
 
+**File shape.** Default to short. Pages exist to be read by humans in a hurry, fed to AI agents as context, and edited by forkers — each of those scales poorly with length. If a page grows long *because its sub-topics are independently curatable* (a forker might link to one without the others, or remove one without the rest), promote them to sibling files. If it grows long because the sub-topics belong together, leave it.
+
 **Doctrine here is the seed, not the canonical source.** Anything you copy into a downstream project must work standalone — downstream forks should not assume access to this repo.
 
 ## Core positioning
