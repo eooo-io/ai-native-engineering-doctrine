@@ -1,0 +1,77 @@
+{
+  // Tightened from the harness's adapter baseline (05-tool-adapters/claude/settings.json)
+  // for audra-chat specifically. Only the tooling actually used in this project is allowed.
+  "permissions": {
+    // Read-only operations and the project's actual test/lint/build commands.
+    "allow": [
+      "Read(*)",
+      "Glob(*)",
+      "Grep(*)",
+
+      // uv-managed Python tooling.
+      "Bash(uv run pytest*)",
+      "Bash(uv run mypy*)",
+      "Bash(uv run ruff check*)",
+      "Bash(uv run ruff format*)",
+      "Bash(uv run uvicorn*)",
+
+      // Alembic migration commands that are read-only or local-only.
+      "Bash(uv run alembic current*)",
+      "Bash(uv run alembic history*)",
+      "Bash(uv run alembic heads*)",
+
+      // Read-only git.
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git show*)",
+      "Bash(git branch*)"
+    ],
+
+    // Operations requiring confirmation. Anything mutating source, schema, or shared state.
+    "ask": [
+      "Edit(*)",
+      "Write(*)",
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "Bash(uv add*)",
+      "Bash(uv pip install*)",
+
+      // Migration application is consequential — ask even in dev.
+      "Bash(uv run alembic upgrade*)",
+      "Bash(uv run alembic downgrade*)",
+      "Bash(uv run alembic revision*)"
+    ],
+
+    // Off-limits regardless of confirmation.
+    "deny": [
+      "Bash(rm -rf*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(git push * main*)",
+      "Bash(git push * release/*)",
+
+      // Production environment is never touched from a local agent session.
+      "Bash(* prod*)",
+      "Bash(* production*)"
+    ]
+  },
+
+  // No environment variables baked in. Secrets load from `.env` via pydantic-settings.
+  "env": {},
+
+  // Hook: scan tool output for secret-like patterns. The hook script is in this same
+  // .claude/hooks/ directory; chmod +x after copying into your project.
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          { "type": "command", "command": ".claude/hooks/post-tool-use-secrets-flag.sh" }
+        ]
+      }
+    ]
+  }
+}
