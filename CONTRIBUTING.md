@@ -53,6 +53,16 @@ Issues are useful for:
 
 Issues are not useful for asking the maintainer to make the harness reflect your team's preferences. That's what your fork is for.
 
+## Releases
+
+The harness uses [Semantic Versioning](https://semver.org/) starting at `v1.0.0`.
+
+- **Major** (`vN.0.0`) — breaking doctrine changes: rule reversals, file removals, structural moves that downstream forks may rely on.
+- **Minor** (`vN.M.0`) — new pages, expansions, additions that don't reverse existing doctrine.
+- **Patch** (`vN.M.P`) — typos, broken-link fixes, voice tweaks, mechanical corrections.
+
+If you want a stable base for your fork, pin to a specific tag. If you want the upstream's current opinion, track `main`. Release notes for tagged versions live in the annotated git tag (`git show vX.Y.Z`).
+
 ## Code of conduct
 
 Disagree with the doctrine, not with the people who hold it.

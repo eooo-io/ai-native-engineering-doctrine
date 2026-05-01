@@ -27,8 +27,6 @@ Use it as a portfolio-safe base. Keep sensitive examples, private prompts, clien
 06-cloud-and-delivery/       Docker, Kubernetes, CI/CD, IaC, observability
 07-security-and-secrets/     Security, secrets, dependency, and supply-chain rules
 08-review-rubrics/           Code, architecture, test, and security review rubrics
-09-interview-proof-pack/     Interview narratives, matrices, and portfolio talk tracks
-10-stack-profiles/           Opinionated stack bundles (peer options, not defaults)
 ```
 
 ## How to adopt this
@@ -37,9 +35,7 @@ Use it as a portfolio-safe base. Keep sensitive examples, private prompts, clien
 2. Read `01-engineering-canon/` first. That's the doctrine layer. Keep what fits, rewrite what doesn't.
 3. Treat `02` through `08` as a doctrine library. Most teams will use 60–80% as-is and rewrite the rest.
 4. Treat `05-tool-adapters/` as the bridge between doctrine and AI tooling. Claude is the **reference adapter** — the deepest worked example. Cursor, Copilot, Codex, and the generic `AGENTS.md` are intentionally lighter sketches, scaled to what each tool actually consumes. Extend them yourself if you live in one of those tools.
-5. Treat `10-stack-profiles/` as opinionated bundles for real work, presented as peer options. Pick one, blend two, or write your own.
-6. Treat `09-interview-proof-pack/` as the public-facing explanation layer if you use the harness as a portfolio.
-7. Keep private extensions, client-specific examples, and proprietary doctrine in a private vault — not in your public fork.
+5. Keep private extensions, client-specific examples, and proprietary doctrine in a private vault — not in your public fork.
 
 **File shape.** Default to short. Pages exist to be read by humans in a hurry, fed to AI agents as context, and edited by forkers — each of those scales poorly with length. If a page grows long *because its sub-topics are independently curatable* (a forker might link to one without the others, or remove one without the rest), promote them to sibling files. If it grows long because the sub-topics belong together, leave it.
 
