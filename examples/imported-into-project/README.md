@@ -37,6 +37,18 @@ Everything below is filled in for **`audra-chat`**, a fictional FastAPI service.
 - **What changes after adoption.** The adapter files are seeds. The example shows how those seeds shape into project-specific content: real commands, named conventions, real "ask before" cases, real boundaries.
 - **What stays the same.** The hook script and the code-review skill are essentially unchanged from the canon — they're project-agnostic. The memory files and `settings.json` are project-specific.
 
+## Maintenance posture: `CLAUDE.md` vs. `AGENTS.md`
+
+The example carries both `CLAUDE.md` and `AGENTS.md` because real projects often run multiple coding agents — Claude Code reads `CLAUDE.md`, generic-agent tooling reads `AGENTS.md`. The two files cover overlapping ground (project description, code style, security, operating posture) but at different fidelities: `CLAUDE.md` is project-specific and tuned for Claude Code's memory-file conventions; `AGENTS.md` is the broader baseline that any agent landing in the repo can read.
+
+Pick a sync stance and write it down:
+
+- **Single source.** Treat one file as canonical (usually `AGENTS.md` for the operating-rules baseline) and copy the relevant sections into the other when you change them. Annotate the derived file at the top: "sections N–M mirror AGENTS.md; edit there first."
+- **Independent.** Treat them as deliberately separate files, where `CLAUDE.md` carries project commands, file-path conventions, and Claude-specific "ask before" boundaries that don't belong in a generic agent baseline. Drift between the two is acceptable as long as the *operating rules* don't contradict.
+- **Generated.** A small script renders one file from the other plus a header. Worth it only if you maintain many agent memory files in the same project.
+
+Don't leave the choice implicit. Drift between memory files is the same problem this harness warns about elsewhere; don't reproduce it inside the example.
+
 ## What this example is not
 
 - Not a runnable project. There is no `pyproject.toml`, no source code, no migrations.

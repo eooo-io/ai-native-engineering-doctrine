@@ -2,19 +2,6 @@
 
 A working tracker for actionable items identified in review of `v2.1.0`. Each entry is concrete and file-anchored. Close items by removing them from this file. Delete the file once it's empty.
 
-## Examples directory
-
-### 7. Address the `CLAUDE.md` / `AGENTS.md` overlap in the example
-
-- **Files:** `examples/imported-into-project/CLAUDE.md`, `examples/imported-into-project/AGENTS.md`, `examples/imported-into-project/README.md`
-- **State:** ~50 lines of duplicated doctrine across the two memory files. The example's README calls `AGENTS.md` "a mirror" but doesn't say what a maintainer should do when the two drift.
-- **Change:** add a short "Maintenance posture" note in the example's README explaining the intentional duplication (two tool families, two memory files), and name the chosen sync stance — edit one and copy, generate one from the other, or accept drift.
-
-### 8. Comment the example `settings.json` about the hook exec bit
-
-- **File:** `examples/imported-into-project/.claude/settings.json`
-- **Change:** one JSONC comment above the `hooks` block reminding forkers to `chmod +x` after copying the script. The settings file currently points at a non-executable script — a working contradiction without the comment.
-
 ## Security and regulatory
 
 ### 9. Frame `gdpr-data-handling.md` as one regulator, not the regulator

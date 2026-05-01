@@ -69,8 +69,18 @@
   // No environment variables baked in. Secrets load from `.env` via pydantic-settings.
   "env": {},
 
-  // Hook: scan tool output for secret-like patterns. The hook script is in this same
-  // .claude/hooks/ directory; chmod +x after copying into your project.
+  // Hook: scan tool output for secret-like patterns.
+  //
+  // The script in this example is checked in mode 644 (no execute bit).
+  // After copying this directory into your project, run:
+  //
+  //   chmod +x .claude/hooks/post-tool-use-secrets-flag.sh
+  //
+  // Without the execute bit, Claude Code will fail to invoke the hook
+  // and your tool output will go un-scanned. The example's settings
+  // file references the script as if it's already executable on
+  // purpose — the chmod step is the only thing that turns the
+  // wired-up reference into a working hook.
   "hooks": {
     "PostToolUse": [
       {
