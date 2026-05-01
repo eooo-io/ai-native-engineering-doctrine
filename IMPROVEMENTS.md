@@ -4,14 +4,6 @@ A working tracker for actionable items identified in review of `v2.1.0`. Each en
 
 ## Claude adapter
 
-### 3. Resolve the skills mirror duplication
-
-- **Files:** `05-tool-adapters/claude/skills/*/SKILL.md`, `05-tool-adapters/claude/skills/README.md`
-- **State:** mirror is byte-identical to `04-agent-skills/`. Sync cost is paid; divergence benefit is not realized.
-- **Change:** pick one of:
-  - (a) ship a small `scripts/sync-claude-skills.sh` that copies and verifies, and run it in CI; or
-  - (b) remove the mirror until the first real Claude-specific divergence is needed, and have the Claude adapter README reference `04-agent-skills/` directly.
-
 ### 4. Caveat the deny-pattern globs in `settings.json`
 
 - **Files:** `05-tool-adapters/claude/settings.json`, `examples/imported-into-project/.claude/settings.json`
