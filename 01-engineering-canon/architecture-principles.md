@@ -23,4 +23,4 @@ Patterns live in `02-architecture-patterns/`, presented as peer options. Compare
 
 ## Architecture decision records
 
-Use ADRs for decisions that affect system structure, operational behavior, security posture, or long-term maintainability. The constraint that drove the decision is the part that matters in two years; record it.
+Use ADRs for decisions that affect system structure, operational behavior, security posture, or long-term maintainability. The constraint that drove the decision is the part that matters in two years; record it. A starting template lives at `templates/adr-template.md`.

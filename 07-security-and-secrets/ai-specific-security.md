@@ -36,7 +36,7 @@ Every model call sends data outside your perimeter. Treat the call as a data exp
 
 - Know what's in the prompt — including system instructions, memory files, retrieved context, and tool outputs.
 - Know your provider's data-handling posture: retention, training-on-data terms, geographic processing, sub-processors.
-- Match the model used to the data sensitivity. If the data is regulated, the answer to "is this provider acceptable" is a compliance question, not a vibes question.
+- Match the model used to the data sensitivity. If the data is regulated, "is this provider acceptable" is a compliance question. Treat it that way.
 - Document a per-environment policy for what data may leave to which providers. Treat it like any other third-party data sharing.
 
 ## Agent-induced supply-chain risk

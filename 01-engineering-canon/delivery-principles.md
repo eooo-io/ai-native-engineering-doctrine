@@ -2,7 +2,7 @@
 
 ## Delivery philosophy
 
-Ship small, verified increments. Prefer visible progress with safety rails over heroic rewrites performed in the fog while someone yells "agile" from a conference room.
+Ship small, verified increments. Prefer visible progress with safety rails over heroic rewrites performed without a rollback path.
 
 ## Rules
 

@@ -4,7 +4,7 @@
 
 Build systems that are understandable, testable, observable, secure, and changeable.
 
-Prefer boring clarity over fashionable complexity. A system that the team can reason about at 02:00 is more valuable than a majestic architecture diagram that requires incense and a committee.
+Prefer boring clarity over fashionable complexity. A system that the team can reason about at 02:00 is more valuable than an architecture diagram that takes three meetings to interpret.
 
 ## Principles
 
