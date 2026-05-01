@@ -1,0 +1,85 @@
+{
+  // Conservative permission baseline for Claude Code. Tighten further per project.
+  // Patterns match the tool calls Claude is about to perform; the parser supports
+  // JSONC-style `//` line comments. Strip them if your tooling complains.
+  "permissions": {
+    // Operations Claude may run unsupervised. Read-only by default.
+    "allow": [
+      "Read(*)",
+      "Glob(*)",
+      "Grep(*)",
+
+      // Build, test, and lint commands. Add stack-specific entries here, kept precise.
+      "Bash(npm test*)",
+      "Bash(npm run lint*)",
+      "Bash(npm run typecheck*)",
+      "Bash(pnpm test*)",
+      "Bash(pytest*)",
+      "Bash(uv run pytest*)",
+      "Bash(uv run mypy*)",
+      "Bash(uv run ruff*)",
+      "Bash(go test*)",
+      "Bash(cargo test*)",
+
+      // Read-only git operations.
+      "Bash(git status*)",
+      "Bash(git diff*)",
+      "Bash(git log*)",
+      "Bash(git show*)",
+      "Bash(git branch*)"
+    ],
+
+    // Operations that must always be confirmed, regardless of how routine they look.
+    // Anything that mutates source, costs money, installs code, or affects shared
+    // state belongs here.
+    "ask": [
+      "Edit(*)",
+      "Write(*)",
+      "Bash(git commit*)",
+      "Bash(git push*)",
+      "Bash(npm install*)",
+      "Bash(pnpm install*)",
+      "Bash(uv add*)",
+      "Bash(uv pip install*)",
+      "Bash(pip install*)",
+      "Bash(cargo add*)"
+    ],
+
+    // Operations the agent must never run, regardless of confirmation.
+    // These are autonomy ceilings (see `01-engineering-canon/permission-boundaries.md`).
+    "deny": [
+      "Bash(rm -rf*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "Bash(git push * main*)",
+      "Bash(git push * master*)",
+      "Bash(git push * production*)"
+    ]
+  },
+
+  // Environment variables passed to Claude's tools. Do not put secrets here;
+  // reference them via the shell environment instead.
+  "env": {
+    // Example:
+    // "PROJECT_ROOT": "/path/to/project"
+  },
+
+  // Hook stubs. Hooks intercept agent actions; see `hooks/README.md` for when
+  // a hook is the right answer vs. memory or skills.
+  "hooks": {
+    // Example: flag tool output that looks like it might contain secrets.
+    // Uncomment after copying `hooks/post-tool-use-secrets-flag.sh` into your
+    // project's `.claude/hooks/` and making it executable.
+    //
+    // "PostToolUse": [
+    //   {
+    //     "matcher": "*",
+    //     "hooks": [
+    //       { "type": "command", "command": ".claude/hooks/post-tool-use-secrets-flag.sh" }
+    //     ]
+    //   }
+    // ]
+  }
+}
