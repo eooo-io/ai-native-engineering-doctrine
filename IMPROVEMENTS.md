@@ -4,11 +4,6 @@ A working tracker for actionable items identified in review of `v2.1.0`. Each en
 
 ## Doctrine and structure
 
-### 1. Surface `templates/` in the README directory map
-
-- **File:** `README.md`
-- **Change:** add `01-engineering-canon/templates/` to the directory map (the ADR template lives there and is currently invisible from the entry point).
-
 ### 2. Note the v1.0.0 → v2.0.0 transition in CONTRIBUTING
 
 - **File:** `CONTRIBUTING.md`

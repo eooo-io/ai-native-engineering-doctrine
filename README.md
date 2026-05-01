@@ -22,6 +22,7 @@ Use it as a portfolio-safe base. Keep sensitive examples, private prompts, clien
 
 ```text
 01-engineering-canon/        Durable principles and operating doctrine
+  └── templates/             Reusable templates (ADR, etc.)
 02-architecture-patterns/    Design patterns, trade-offs, and anti-patterns
 03-coding-standards/         Language and framework-specific rules
 04-agent-skills/             Reusable AI-agent skill definitions
