@@ -44,6 +44,13 @@
     ],
 
     // Off-limits regardless of confirmation.
+    //
+    // Caveat: these patterns rely on Claude Code's command tokenization
+    // and glob semantics. The `Bash(* prod*)` and `Bash(* production*)`
+    // entries below are deliberately broad to catch any command whose
+    // second-or-later token starts with "prod"/"production" (e.g.
+    // `kubectl --context prod ...`, `aws --profile production ...`).
+    // Verify against your real command shapes before trusting them.
     "deny": [
       "Bash(rm -rf*)",
       "Bash(git push --force*)",

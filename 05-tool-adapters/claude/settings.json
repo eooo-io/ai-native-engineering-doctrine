@@ -47,6 +47,12 @@
 
     // Operations the agent must never run, regardless of confirmation.
     // These are autonomy ceilings (see `01-engineering-canon/permission-boundaries.md`).
+    //
+    // Caveat: these patterns rely on Claude Code's command tokenization and
+    // glob semantics. After copying, dry-run the deny entries against the
+    // exact command shapes your stack produces — wrappers, custom remotes,
+    // shell aliases, and CI invocations can all change the matched string.
+    // Trust your test, not the example.
     "deny": [
       "Bash(rm -rf*)",
       "Bash(git push --force*)",

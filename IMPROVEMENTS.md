@@ -4,12 +4,6 @@ A working tracker for actionable items identified in review of `v2.1.0`. Each en
 
 ## Claude adapter
 
-### 4. Caveat the deny-pattern globs in `settings.json`
-
-- **Files:** `05-tool-adapters/claude/settings.json`, `examples/imported-into-project/.claude/settings.json`
-- **Change:** add a JSONC comment above the `deny` block noting that patterns like `Bash(* prod*)` and `Bash(git push * main*)` rely on Claude Code's command tokenization; forkers should test them against the actual command shapes their stack produces.
-- **Why:** the harness preaches "tighten further per project" but doesn't ask forkers to verify the patterns fire as intended.
-
 ### 5. Harden the secrets-flag hook against silent failure
 
 - **Files:** `05-tool-adapters/claude/hooks/post-tool-use-secrets-flag.sh`, `05-tool-adapters/claude/hooks/post-tool-use-secrets-flag.md`, `examples/imported-into-project/.claude/hooks/post-tool-use-secrets-flag.sh`
