@@ -35,26 +35,34 @@ The script ships as a sibling file: [`post-tool-use-secrets-flag.sh`](./post-too
 
 set -euo pipefail
 
-# Read the hook input as JSON.
 input="$(cat)"
-
-# Extract the tool response text. The exact path may vary by Claude Code
-# version; .tool_response.content is the common location.
 output="$(echo "$input" | jq -r '.tool_response.content // .tool_response // ""')"
 
-# Patterns to flag. Tune these for your project's risk profile.
-# Each pattern is an extended regex (`grep -E`).
+# Fail loud, not closed: if extraction returns empty, warn, surface the
+# observed top-level keys, and fall back to scanning the raw input.
+if [ -z "$output" ]; then
+  echo "WARNING: secrets-flag hook found no .tool_response content."
+  echo "  Claude Code's hook input schema may have shifted; falling back to raw input."
+  keys="$(echo "$input" | jq -r 'keys | join(", ")' 2>/dev/null || echo '<unparseable>')"
+  echo "  top-level keys observed: ${keys}"
+  output="$input"
+fi
+
+# Patterns to flag.
 patterns=(
-  'AKIA[0-9A-Z]{16}'                                          # AWS access key
-  'sk-[A-Za-z0-9]{20,}'                                       # OpenAI / Anthropic-style API key
-  'ghp_[A-Za-z0-9]{36,}'                                      # GitHub personal access token
-  'Bearer [A-Za-z0-9._-]{20,}'                                # bearer token in Authorization header
-  '(api[_-]?key|secret|token|password)[^A-Za-z0-9]{1,3}[A-Za-z0-9._-]{16,}'  # generic key=value
+  'AKIA[0-9A-Z]{16}'
+  'sk-[A-Za-z0-9]{20,}'
+  'ghp_[A-Za-z0-9]{36,}'
+  'Bearer [A-Za-z0-9._-]{20,}'
+  '(api[_-]?key|secret|token|password)[^A-Za-z0-9]{1,3}[A-Za-z0-9._-]{16,}'
 )
+
+# Lines containing these markers are treated as placeholders and dropped.
+placeholder_markers='YOUR_|EXAMPLE_|REPLACE_|FIXME|TODO|placeholder|XXXXXXXXXXXX'
 
 flagged=()
 for pattern in "${patterns[@]}"; do
-  if echo "$output" | grep -E -q "$pattern"; then
+  if echo "$output" | grep -E "$pattern" | grep -E -v "$placeholder_markers" | grep -q .; then
     flagged+=("$pattern")
   fi
 done
@@ -67,7 +75,6 @@ if [ ${#flagged[@]} -gt 0 ]; then
   echo "Review the output before continuing. Rotate any real secret that has appeared here."
 fi
 
-# Always exit 0 — this hook flags, it does not block.
 exit 0
 ```
 
@@ -97,6 +104,13 @@ The `"matcher": "*"` runs the hook for every tool. Narrow it (e.g. `"Bash(*)"`) 
 - The pattern list is a starting point. Add patterns specific to your stack (Stripe, Twilio, internal token formats). Remove patterns that produce noise.
 - For high-volume tool output, narrow the matcher in `settings.json` to the tools that produce risky output.
 - For redaction instead of flagging, modify the script to print a redacted version to stdout. Note that the agent then sees the redacted output, which can break workflows that depend on the original.
+- **Placeholder filter.** The script drops flagged lines that also contain `YOUR_`, `EXAMPLE_`, `REPLACE_`, `FIXME`, `TODO`, `placeholder`, or `XXXXXXXXXXXX`. Adjust the `placeholder_markers` variable to fit your codebase's conventions. Tune carefully — an over-broad filter creates the same silent-no-op problem the empty-extraction guard exists to prevent.
+
+## Failure modes
+
+- **Schema drift.** Claude Code's hook input shape has historically been stable but is not contractual. The `if [ -z "$output" ]` block exists so a future shape change surfaces as a noisy warning rather than a silent zero-coverage hook. If you see that warning in real use, update the `jq` extraction path.
+- **False positives.** Documentation pages with example tokens (`sk-AAAA...`, `ghp_AAAA...`), test fixtures, and snapshot output can all trip the patterns. The placeholder filter handles the obvious cases; for project-specific noise, narrow the matcher in `settings.json` upstream of the hook.
+- **False negatives.** Pattern-based detection is a safety net, not a primary control. Treat upstream secret hygiene (`07-security-and-secrets/secrets-policy.md`) as the real defense.
 
 ## Limitations
 

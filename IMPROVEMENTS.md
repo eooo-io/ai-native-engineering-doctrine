@@ -2,20 +2,6 @@
 
 A working tracker for actionable items identified in review of `v2.1.0`. Each entry is concrete and file-anchored. Close items by removing them from this file. Delete the file once it's empty.
 
-## Claude adapter
-
-### 5. Harden the secrets-flag hook against silent failure
-
-- **Files:** `05-tool-adapters/claude/hooks/post-tool-use-secrets-flag.sh`, `05-tool-adapters/claude/hooks/post-tool-use-secrets-flag.md`, `examples/imported-into-project/.claude/hooks/post-tool-use-secrets-flag.sh`
-- **State:** `jq -r '.tool_response.content // .tool_response // ""'` falls back to empty string when Claude Code's hook schema changes — the hook becomes a silent no-op.
-- **Change:** when extraction returns empty, either (a) emit a "hook input shape unrecognized" warning and grep over the raw input as a fallback, or (b) print the top-level keys for debugging. Fail loud, not closed.
-
-### 6. Soften the default secrets regex
-
-- **Files:** `05-tool-adapters/claude/hooks/post-tool-use-secrets-flag.sh` (and mirror in the example)
-- **State:** `(api[_-]?key|secret|token|password)[^A-Za-z0-9]{1,3}[A-Za-z0-9._-]{16,}` and `Bearer [A-Za-z0-9._-]{20,}` fire on documentation placeholders and example bodies.
-- **Change:** either (a) skip values starting with `<`, `{{`, or `$` (common placeholder shapes), or (b) add a one-line comment near the patterns naming the most common false-positive shapes so forkers know what to tune.
-
 ## Examples directory
 
 ### 7. Address the `CLAUDE.md` / `AGENTS.md` overlap in the example

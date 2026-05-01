@@ -18,11 +18,31 @@ set -euo pipefail
 input="$(cat)"
 
 # Extract the tool response text. The exact path may vary by Claude Code
-# version; .tool_response.content is the common location.
+# version; .tool_response.content is the common location at the time
+# this hook was written.
 output="$(echo "$input" | jq -r '.tool_response.content // .tool_response // ""')"
 
-# Patterns to flag. Tune these for your project's risk profile.
-# Each pattern is an extended regex (`grep -E`).
+# If extraction returned nothing, Claude Code's hook input schema may
+# have shifted. Fail loud, not closed: warn, surface the observed
+# top-level keys, and fall back to scanning the raw input. False
+# positives beat silent zero-coverage on a security tool.
+if [ -z "$output" ]; then
+  echo "WARNING: secrets-flag hook found no .tool_response content."
+  echo "  Claude Code's hook input schema may have shifted; falling back to raw input."
+  keys="$(echo "$input" | jq -r 'keys | join(", ")' 2>/dev/null || echo '<unparseable>')"
+  echo "  top-level keys observed: ${keys}"
+  output="$input"
+fi
+
+# Patterns to flag. Each is an extended regex (`grep -E`).
+#
+# Known false-positive surface — tune the patterns or narrow the
+# matcher in settings.json if these dominate your tool output:
+#   - Documentation pages with example tokens shaped like real ones
+#     (e.g. `sk-AAAA...`, `ghp_AAAA...` in SDK READMEs).
+#   - Test fixtures and snapshot tests with long opaque strings.
+#   - Long placeholder values after generic keywords
+#     (e.g. `password = "verylongplaceholdertext..."`).
 patterns=(
   'AKIA[0-9A-Z]{16}'                                          # AWS access key
   'sk-[A-Za-z0-9]{20,}'                                       # OpenAI / Anthropic-style API key
@@ -31,9 +51,14 @@ patterns=(
   '(api[_-]?key|secret|token|password)[^A-Za-z0-9]{1,3}[A-Za-z0-9._-]{16,}'  # generic key=value
 )
 
+# Lines that contain any of these markers are treated as obvious
+# placeholders or fixtures and dropped from the flag set. Adjust to fit
+# your codebase's conventions.
+placeholder_markers='YOUR_|EXAMPLE_|REPLACE_|FIXME|TODO|placeholder|XXXXXXXXXXXX'
+
 flagged=()
 for pattern in "${patterns[@]}"; do
-  if echo "$output" | grep -E -q "$pattern"; then
+  if echo "$output" | grep -E "$pattern" | grep -E -v "$placeholder_markers" | grep -q .; then
     flagged+=("$pattern")
   fi
 done
