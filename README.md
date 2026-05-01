@@ -6,6 +6,14 @@ This is a **fork-and-curate seed**, not a runnable tool. Forkers copy the repo, 
 
 > Wondering if this is for you? See [`WHO-THIS-IS-FOR.md`](./WHO-THIS-IS-FOR.md). Want to see the shape of a project after adoption? See [`examples/imported-into-project/`](./examples/imported-into-project/).
 
+## What "harness" means here
+
+The word "harness" has crystallized in the AI-engineering vocabulary as a runtime category — the agent loop, tool dispatch, sandboxing, memory, approval gates, and observability that turn an LLM into something that can actually do work. Cursor SDK, Claude Code, Codex, OpenAI Agents SDK, Microsoft Foundry hosted agents, and Anthropic's managed agents are harnesses in that sense — "harness as a service."
+
+This repo is **not** a runtime in that sense. It ships no agent loop, no tool dispatch, no execution. It is the **doctrine layer** that lives above any such runtime: the standards, conventions, skill formats, agent operating principles, and review rubrics that inform *what* you put into one — which skills, what `CLAUDE.md` content, which permission boundaries, which review rubrics.
+
+For a self-hosted harness in the runtime sense, see [`orkestr`](https://github.com/eooo-io/orkestr) — an agent OS with MCP and A2A, persistent memory, multi-model routing, guardrails, and observability. The doctrine in this repo informs what runs inside one.
+
 ## TL;DR
 
 For the impatient:
