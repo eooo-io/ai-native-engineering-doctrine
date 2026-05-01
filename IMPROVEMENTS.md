@@ -2,14 +2,6 @@
 
 A working tracker for actionable items identified in review of `v2.1.0`. Each entry is concrete and file-anchored. Close items by removing them from this file. Delete the file once it's empty.
 
-## Doctrine and structure
-
-### 2. Note the v1.0.0 → v2.0.0 transition in CONTRIBUTING
-
-- **File:** `CONTRIBUTING.md`
-- **Change:** one sentence under "Releases" stating that v1 → v2 was a structural deletion (the personal/portfolio dirs), not a doctrine reversal.
-- **Why:** forkers pinned at v1.0.0 should know what they'd lose by moving up.
-
 ## Claude adapter
 
 ### 3. Resolve the skills mirror duplication

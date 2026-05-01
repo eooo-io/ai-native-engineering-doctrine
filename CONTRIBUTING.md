@@ -63,6 +63,8 @@ The harness uses [Semantic Versioning](https://semver.org/) starting at `v1.0.0`
 
 If you want a stable base for your fork, pin to a specific tag. If you want the upstream's current opinion, track `main`. Release notes for tagged versions live in the annotated git tag (`git show vX.Y.Z`).
 
+The `v1.0.0 → v2.0.0` jump was a structural deletion (the personal/portfolio directories `09-interview-proof-pack/` and `10-stack-profiles/` were removed), not a doctrine reversal. Forks pinned at `v1.0.0` lose those two directories on the way to `v2.x`; everything else is additive.
+
 ## Code of conduct
 
 Disagree with the doctrine, not with the people who hold it.
