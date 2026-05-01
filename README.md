@@ -6,6 +6,17 @@ This is a **fork-and-curate seed**, not a runnable tool. Forkers copy the repo, 
 
 > Wondering if this is for you? See [`WHO-THIS-IS-FOR.md`](./WHO-THIS-IS-FOR.md). Want to see the shape of a project after adoption? See [`examples/imported-into-project/`](./examples/imported-into-project/).
 
+## TL;DR
+
+For the impatient:
+
+1. Fork the repo.
+2. Copy `05-tool-adapters/claude/CLAUDE.md` to your project root; fill in the placeholders.
+3. Copy `05-tool-adapters/claude/settings.json` to `.claude/settings.json`; tighten for your stack.
+4. Look at [`examples/imported-into-project/`](./examples/imported-into-project/) to see what filled-in shapes look like.
+
+Then come back and read the rest. The templates are scaffolding; the doctrine in `01-engineering-canon/` is what makes them work.
+
 ## Purpose
 
 The harness helps answer a practical question:
@@ -22,6 +33,7 @@ Use it as a portfolio-safe base. Keep sensitive examples, private prompts, clien
 
 ```text
 01-engineering-canon/        Durable principles and operating doctrine
+  └── templates/             Reusable templates (ADR, etc.)
 02-architecture-patterns/    Design patterns, trade-offs, and anti-patterns
 03-coding-standards/         Language and framework-specific rules
 04-agent-skills/             Reusable AI-agent skill definitions

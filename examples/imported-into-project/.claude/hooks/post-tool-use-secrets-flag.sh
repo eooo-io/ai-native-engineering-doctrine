@@ -20,7 +20,20 @@ input="$(cat)"
 # Extract the tool response text.
 output="$(echo "$input" | jq -r '.tool_response.content // .tool_response // ""')"
 
+# If extraction returned nothing, Claude Code's hook input schema may
+# have shifted. Fail loud, not closed: warn, surface the observed
+# top-level keys, and fall back to scanning the raw input.
+if [ -z "$output" ]; then
+  echo "WARNING: secrets-flag hook found no .tool_response content."
+  echo "  Claude Code's hook input schema may have shifted; falling back to raw input."
+  keys="$(echo "$input" | jq -r 'keys | join(", ")' 2>/dev/null || echo '<unparseable>')"
+  echo "  top-level keys observed: ${keys}"
+  output="$input"
+fi
+
 # Patterns to flag. Tune for your project's risk profile.
+# Known false-positive surface: documentation example tokens, long
+# placeholder values, and snapshot fixtures.
 patterns=(
   'AKIA[0-9A-Z]{16}'                                          # AWS access key
   'sk-[A-Za-z0-9]{20,}'                                       # OpenAI / Anthropic-style API key
@@ -29,9 +42,13 @@ patterns=(
   '(api[_-]?key|secret|token|password)[^A-Za-z0-9]{1,3}[A-Za-z0-9._-]{16,}'  # generic key=value
 )
 
+# Lines containing these markers are treated as placeholders and
+# dropped from the flag set.
+placeholder_markers='YOUR_|EXAMPLE_|REPLACE_|FIXME|TODO|placeholder|XXXXXXXXXXXX'
+
 flagged=()
 for pattern in "${patterns[@]}"; do
-  if echo "$output" | grep -E -q "$pattern"; then
+  if echo "$output" | grep -E "$pattern" | grep -E -v "$placeholder_markers" | grep -q .; then
     flagged+=("$pattern")
   fi
 done

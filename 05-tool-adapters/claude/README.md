@@ -12,8 +12,8 @@ Use this directory as the starting point for setting up Claude Code in a new pro
 | `settings.json` | Conservative permissions baseline (allow / ask / deny), env-var slot, and a hook stub. |
 | `hooks/README.md` | When a hook is the right answer vs. memory or skills. |
 | `hooks/post-tool-use-secrets-flag.md` | Annotated PostToolUse hook that flags secret-like patterns in tool output. |
-| `skills/<name>/SKILL.md` | Mirrors of the canonical skills in `04-agent-skills/`, ready to drop into `.claude/skills/`. |
-| `skills/README.md` | Note on the mirror relationship and divergence policy. |
+
+Skills are not mirrored under this directory. Copy directly from [`04-agent-skills/`](../../04-agent-skills/) into your project's `.claude/skills/` — each `SKILL.md` is self-contained and follows the format defined in `04-agent-skills/SKILL-FORMAT.md`. If a Claude-specific tuning becomes necessary later (description rewording for routing, Claude-tool-aware Output sections), reintroduce a mirror here at that point — not before.
 
 ## Quick-start
 
@@ -21,7 +21,7 @@ In a new or existing project:
 
 1. Copy `CLAUDE.md` to the project root. Fill in the placeholder sections; delete what doesn't apply.
 2. Copy `settings.json` to `.claude/settings.json`. Read the comments; tighten further if your stack is risk-sensitive.
-3. (Optional) Copy `skills/` to `.claude/skills/`. Pick the skills you want; delete the rest. Each `SKILL.md` is self-contained.
+3. (Optional) Copy individual skills from [`04-agent-skills/`](../../04-agent-skills/) into `.claude/skills/`. Each `SKILL.md` is self-contained.
 4. (Optional) If you want a hook running, copy the script body from `hooks/post-tool-use-secrets-flag.md` into `.claude/hooks/post-tool-use-secrets-flag.sh`, `chmod +x`, and uncomment the matching block in `settings.json`.
 
 After step 1, the project has a working Claude Code memory file. Each subsequent step adds a layer; none of them require the harness at runtime.
@@ -30,7 +30,7 @@ After step 1, the project has a working Claude Code memory file. Each subsequent
 
 - **`CLAUDE.md`.** This file is project-specific by design. Almost everything in it should be your project's content, not the template's.
 - **`settings.json` permissions.** The defaults are conservative. Add stack-specific allowed commands, additional denies, project-specific environment variables.
-- **`skills/`.** Add skills for workflows specific to your project. Tune existing skill descriptions if Claude's routing isn't picking the right one.
+- **Skills in your project's `.claude/skills/`.** Add skills for workflows specific to your project, starting from `04-agent-skills/` as the canonical source. Tune the `description` lines if Claude's routing isn't picking the right one.
 
 ## What to leave alone (initially)
 
