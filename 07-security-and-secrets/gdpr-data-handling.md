@@ -2,6 +2,14 @@
 
 Engineering posture for GDPR and adjacent regimes (UK GDPR, similar EU/EEA frameworks). This is doctrine, not legal advice — when a real question lands, talk to your DPO or counsel.
 
+## Why GDPR specifically
+
+GDPR is one regulatory regime among several an engineer might land in: SOC 2 (control framework, not law), HIPAA (US health data), PCI DSS (payment cards), CCPA/CPRA (California), Brazil's LGPD, and others. The harness ships an engineering posture for GDPR specifically because it has the broadest reach for a European audience and the most generalizable concepts — lawful basis, subject rights, processor relationships, transfer mechanisms — that recur in adjacent regimes.
+
+Treat this page as the GDPR-shaped instance of a wider pattern, not as a claim that GDPR is the only regulator that matters. If your project sits under HIPAA, PCI, SOC 2, or a regional regime, write a sibling page using this one's structure and your regulator's vocabulary. The decision points are similar; the names and obligations differ.
+
+When a regulator question that isn't GDPR lands, escalate to counsel before reaching for analogies from this page.
+
 ## Data classification
 
 Treat data in three buckets, even if your formal classification scheme is more granular:
