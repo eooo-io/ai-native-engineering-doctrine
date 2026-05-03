@@ -53,8 +53,8 @@ or supersedes. Optional but useful.
 ---
 
 <!--
-This template is part of the AI-Native Engineering Harness:
-https://github.com/eooo-io/ai-native-engineering-harness
+This template is part of the AI-Native Engineering Doctrine:
+https://github.com/eooo-io/ai-native-engineering-doctrine
 
 Copy this file to a numbered ADR (e.g. `docs/adr/0001-postgres-for-audit.md`)
 and fill it in. ADRs are immutable once accepted: superseding decisions get

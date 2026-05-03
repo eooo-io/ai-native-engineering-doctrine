@@ -1,6 +1,6 @@
 # Claude Adapter
 
-The reference adapter for the AI-Native Engineering Harness. Of all the adapters in `05-tool-adapters/`, this one is the deepest worked example: the others (Cursor, Copilot, Codex, generic AGENTS.md) are intentionally lighter sketches scaled to what each tool actually consumes.
+The reference adapter for the AI-Native Engineering Doctrine. Of all the adapters in `05-tool-adapters/`, this one is the deepest worked example: the others (Cursor, Copilot, Codex, generic AGENTS.md) are intentionally lighter sketches scaled to what each tool actually consumes.
 
 Use this directory as the starting point for setting up Claude Code in a new project.
 
@@ -24,7 +24,7 @@ In a new or existing project:
 3. (Optional) Copy individual skills from [`04-agent-skills/`](../../04-agent-skills/) into `.claude/skills/`. Each `SKILL.md` is self-contained.
 4. (Optional) If you want a hook running, copy the script body from `hooks/post-tool-use-secrets-flag.md` into `.claude/hooks/post-tool-use-secrets-flag.sh`, `chmod +x`, and uncomment the matching block in `settings.json`.
 
-After step 1, the project has a working Claude Code memory file. Each subsequent step adds a layer; none of them require the harness at runtime.
+After step 1, the project has a working Claude Code memory file. Each subsequent step adds a layer; none of them require the doctrine at runtime.
 
 ## What to extend
 
@@ -40,4 +40,4 @@ After step 1, the project has a working Claude Code memory file. Each subsequent
 
 ## Why this is the reference adapter
 
-Claude Code consumes more of the harness's surface area than other tools — memory files, structured permissions, hooks, skills, sub-agents — so the Claude adapter is where the doctrine becomes most concrete. The other adapters in `05-tool-adapters/` cover the same engineering principles, but compressed to what those tools can actually act on. If a forker lives primarily in Cursor or Copilot, they should still treat this directory as the canonical example and extend their own adapter accordingly.
+Claude Code consumes more of the doctrine's surface area than other tools — memory files, structured permissions, hooks, skills, sub-agents — so the Claude adapter is where the doctrine becomes most concrete. The other adapters in `05-tool-adapters/` cover the same engineering principles, but compressed to what those tools can actually act on. If a forker lives primarily in Cursor or Copilot, they should still treat this directory as the canonical example and extend their own adapter accordingly.

@@ -4,7 +4,7 @@
 
 Context engineering is the discipline of putting the right information in front of an AI agent — and only the right information. The model is fast and patient; your token budget, cache window, and ability to debug the result are not.
 
-This page is pattern-agnostic. Claude is the reference adapter elsewhere in the harness, but the principles below apply to any tool that consumes a system prompt, a memory file, or a session-scoped instruction set.
+This page is pattern-agnostic. Claude is the reference adapter elsewhere in the doctrine, but the principles below apply to any tool that consumes a system prompt, a memory file, or a session-scoped instruction set.
 
 ## What belongs in `CLAUDE.md` / `AGENTS.md`
 

@@ -1,6 +1,6 @@
 # Codex Adapter
 
-> **Sketch fidelity.** This directory is a starting point for Codex skills. The Claude adapter at `05-tool-adapters/claude/` is the deepest worked example in the harness; this file covers the same ground at the depth a Codex integration consumes. Extend it for your project.
+> **Sketch fidelity.** This directory is a starting point for Codex skills. The Claude adapter at `05-tool-adapters/claude/` is the deepest worked example in the doctrine; this file covers the same ground at the depth a Codex integration consumes. Extend it for your project.
 
 Codex consumes per-skill files similar to those in `04-agent-skills/`. Until this directory is built out, treat the canonical skills there as the source for Codex skill content.
 
@@ -19,7 +19,7 @@ Each `SKILL.md` follows the format defined in `04-agent-skills/SKILL-FORMAT.md`:
 
 ## Operating rules to inline in any Codex skill or instruction file
 
-If your Codex setup uses a project-level instruction file rather than per-skill `SKILL.md` files, inline these rules so the project does not need access to the harness at runtime:
+If your Codex setup uses a project-level instruction file rather than per-skill `SKILL.md` files, inline these rules so the project does not need access to the doctrine at runtime:
 
 - Preserve existing architecture unless explicitly asked to refactor.
 - Keep changes small and reviewable.
@@ -32,4 +32,4 @@ If your Codex setup uses a project-level instruction file rather than per-skill 
 
 ## When to copy vs. when to fork
 
-If you only need a couple of skills, copy individual `SKILL.md` files from `04-agent-skills/` into your project's Codex configuration directory. If you need many, fork the harness and curate the result. The skills are written to stand alone when copied.
+If you only need a couple of skills, copy individual `SKILL.md` files from `04-agent-skills/` into your project's Codex configuration directory. If you need many, fork the doctrine and curate the result. The skills are written to stand alone when copied.

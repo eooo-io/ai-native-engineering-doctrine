@@ -1,8 +1,8 @@
 # AGENTS.md
 
-> **Sketch fidelity.** This file is a starting point for `AGENTS.md` at the root of a project. The Claude adapter at `05-tool-adapters/claude/` is the deepest worked example in the harness; this file covers the same ground at the depth a generic agent integration consumes. Extend it for your project.
+> **Sketch fidelity.** This file is a starting point for `AGENTS.md` at the root of a project. The Claude adapter at `05-tool-adapters/claude/` is the deepest worked example in the doctrine; this file covers the same ground at the depth a generic agent integration consumes. Extend it for your project.
 
-Copy the content below into your project's root-level `AGENTS.md`. It is deliberately self-contained — your downstream project does not need access to the harness at runtime.
+Copy the content below into your project's root-level `AGENTS.md`. It is deliberately self-contained — your downstream project does not need access to the doctrine at runtime.
 
 ## Project operating rules
 

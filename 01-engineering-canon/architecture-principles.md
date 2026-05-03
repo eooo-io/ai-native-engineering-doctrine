@@ -2,7 +2,7 @@
 
 ## Default stance
 
-Architecture choices are constraint-driven. The harness does not pick a default pattern; team size, latency budgets, deployment surface, compliance posture, and the team's operational maturity are what decide.
+Architecture choices are constraint-driven. The doctrine does not pick a default pattern; team size, latency budgets, deployment surface, compliance posture, and the team's operational maturity are what decide.
 
 The job of these principles is to hold across patterns. Whether the system ends up a modular monolith, a set of services, an event-driven backbone, or some unholy hybrid, the same checks apply.
 

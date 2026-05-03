@@ -2,14 +2,14 @@
 
 This repo's contribution model is "fork it and curate," not "send a PR." That changes what contributing actually means.
 
-## If you want to use the harness yourself
+## If you want to use the doctrine yourself
 
-The primary way to use the harness is to fork it and shape it into your own personal or team version.
+The primary way to use the doctrine is to fork it and shape it into your own personal or team version.
 
 ### Forking and shaping
 
 1. Fork the repo, or grab a tarball — there's no requirement to use Git's fork mechanism.
-2. Decide what fits and what doesn't. The harness is doctrine, not law. Disagree with a rule? Rewrite it. Don't need a stack profile? Delete it. Find a section thin? Expand it. The result should reflect *your* doctrine, not the upstream's.
+2. Decide what fits and what doesn't. The doctrine is opinion, not law. Disagree with a rule? Rewrite it. Don't need a stack profile? Delete it. Find a section thin? Expand it. The result should reflect *your* doctrine, not the upstream's.
 3. Keep what's still useful. Delete what isn't. Don't leave content sitting because "someone might want it" — see the file-shape rule in the README.
 4. Negotiate the contentious parts with your team if this is a team fork. Things worth raising: permission boundaries (`01-engineering-canon/permission-boundaries.md`), the AI-specific security posture, the no-default-pattern stance, which stack profiles you keep.
 5. Add private extensions, client-specific examples, and proprietary doctrine in a separate private vault — not in your public fork.
@@ -25,12 +25,12 @@ Don't half-do it. A fork that's "kind of" tracking upstream and "kind of" diverg
 
 ## If you want to send a PR upstream
 
-Upstream PRs are welcome, but the bar is real. The harness is opinionated; opinions don't change because someone disagreed once.
+Upstream PRs are welcome, but the bar is real. The doctrine is opinionated; opinions don't change because someone disagreed once.
 
 Good upstream PRs:
 
 - Doctrine improvements with reasoning. "This rule is wrong because X, here's the better rule, here's why X applies generally."
-- Concrete content additions that fill gaps the harness already acknowledges (see open issues labeled `new-content`).
+- Concrete content additions that fill gaps the doctrine already acknowledges (see open issues labeled `new-content`).
 - Fixes for genuine errors: broken links, factual mistakes, references to artifacts that don't exist.
 - Small, well-scoped clarifications.
 
@@ -48,14 +48,14 @@ If you're unsure whether a PR fits, open an issue first.
 Issues are useful for:
 
 - Reporting broken links, factual mistakes, or references to artifacts that don't exist.
-- Proposing content gaps the harness should fill.
+- Proposing content gaps the doctrine should fill.
 - Asking whether a particular change would be welcome upstream before doing the work.
 
-Issues are not useful for asking the maintainer to make the harness reflect your team's preferences. That's what your fork is for.
+Issues are not useful for asking the maintainer to make the doctrine reflect your team's preferences. That's what your fork is for.
 
 ## Releases
 
-The harness uses [Semantic Versioning](https://semver.org/) starting at `v1.0.0`.
+The doctrine uses [Semantic Versioning](https://semver.org/) starting at `v1.0.0`.
 
 - **Major** (`vN.0.0`) — breaking doctrine changes: rule reversals, file removals, structural moves that downstream forks may rely on.
 - **Minor** (`vN.M.0`) — new pages, expansions, additions that don't reverse existing doctrine.

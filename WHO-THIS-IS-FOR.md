@@ -1,6 +1,6 @@
 # Who this is for
 
-This harness is built for people who treat AI-assisted engineering as engineering — not as a vibes-driven productivity hack.
+This doctrine is built for people who treat AI-assisted engineering as engineering — not as a vibes-driven productivity hack.
 
 ## Target audiences
 
@@ -24,14 +24,14 @@ A doctrine library you fork, curate, and own:
 
 ## Not for you if
 
-- You want a runnable productivity tool. The harness is text. Nothing here generates, validates, or executes anything.
-- You want a single dogmatic answer to architecture, framework, or stack choice. The harness deliberately presents patterns as peer options and refuses to pick a default.
-- You want a finished product. The harness is a *starting point*. Forkers are expected to delete what doesn't fit, rewrite what does, and shape it into their own version.
+- You want a runnable productivity tool. The doctrine is text. Nothing here generates, validates, or executes anything.
+- You want a single dogmatic answer to architecture, framework, or stack choice. The doctrine deliberately presents patterns as peer options and refuses to pick a default.
+- You want a finished product. The doctrine is a *starting point*. Forkers are expected to delete what doesn't fit, rewrite what does, and shape it into their own version.
 - You want the doctrine to evolve with you upstream. The contribution model is "fork it and curate." See [`CONTRIBUTING.md`](./CONTRIBUTING.md).
 - You're looking for a prompt zoo. There are no clever prompts here.
 
 ## Where to go next
 
-- New to the harness: read [`README.md`](./README.md) (90 seconds).
+- New to the doctrine: read [`README.md`](./README.md) (90 seconds).
 - Want to see what a project looks like after adoption: [`examples/imported-into-project/`](./examples/imported-into-project/).
 - Want to fork: [`CONTRIBUTING.md`](./CONTRIBUTING.md).

@@ -31,7 +31,7 @@ Each event fires with structured input on stdin (the tool name, arguments, outpu
 
 ## Example
 
-See [`post-tool-use-secrets-flag.md`](./post-tool-use-secrets-flag.md) for the annotated explainer, and [`post-tool-use-secrets-flag.sh`](./post-tool-use-secrets-flag.sh) for the copy-able script. The `.sh` is checked in without the execute bit — copy it into your project's `.claude/hooks/` and `chmod +x` to enable it. The harness's "no executable scripts" rule is about tooling that operates on the harness itself, not about copy-able example artifacts that the doctrine describes.
+See [`post-tool-use-secrets-flag.md`](./post-tool-use-secrets-flag.md) for the annotated explainer, and [`post-tool-use-secrets-flag.sh`](./post-tool-use-secrets-flag.sh) for the copy-able script. The `.sh` is checked in without the execute bit — copy it into your project's `.claude/hooks/` and `chmod +x` to enable it. The "no executable scripts" rule is about tooling that operates on the doctrine repo itself, not about copy-able example artifacts that the doctrine describes.
 
 ## Operational notes
 

@@ -50,11 +50,11 @@
 
 <!--
 This `CLAUDE.md` is part of the example end-state in
-`examples/imported-into-project/` of the AI-Native Engineering Harness.
-The harness itself contains the doctrine that informs each section
+`examples/imported-into-project/` of the AI-Native Engineering Doctrine.
+The repo itself contains the doctrine that informs each section
 (see `01-engineering-canon/`, `03-coding-standards/python.md`,
 `07-security-and-secrets/`).
 
 In a real downstream project, this file lives at the project root
-and stands alone — there is no runtime dependency on the harness.
+and stands alone — there is no runtime dependency on the doctrine repo.
 -->

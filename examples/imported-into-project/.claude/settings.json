@@ -1,5 +1,5 @@
 {
-  // Tightened from the harness's adapter baseline (05-tool-adapters/claude/settings.json)
+  // Tightened from the doctrine's adapter baseline (05-tool-adapters/claude/settings.json)
   // for audra-chat specifically. Only the tooling actually used in this project is allowed.
   "permissions": {
     // Read-only operations and the project's actual test/lint/build commands.

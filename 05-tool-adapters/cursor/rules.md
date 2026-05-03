@@ -1,8 +1,8 @@
 # Cursor Project Rules
 
-> **Sketch fidelity.** This file is a starting point for `.cursor/rules` or Cursor project rules. The Claude adapter at `05-tool-adapters/claude/` is the deepest worked example in the harness; this file covers the same ground at the depth a Cursor integration consumes. Extend it for your project.
+> **Sketch fidelity.** This file is a starting point for `.cursor/rules` or Cursor project rules. The Claude adapter at `05-tool-adapters/claude/` is the deepest worked example in the doctrine; this file covers the same ground at the depth a Cursor integration consumes. Extend it for your project.
 
-Copy the rules below into your Cursor project rules. They are deliberately self-contained — your downstream project does not need access to the harness at runtime.
+Copy the rules below into your Cursor project rules. They are deliberately self-contained — your downstream project does not need access to the doctrine at runtime.
 
 ## Code
 

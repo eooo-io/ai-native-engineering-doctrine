@@ -1,6 +1,6 @@
-# Example: Harness Imported Into a Project
+# Example: Doctrine Imported Into a Project
 
-This directory shows the *shape* of a project after the harness has been adopted. Nothing here is meant to be run; it is doctrine-only, like the rest of the repo. The point is legibility: what files land where, what the filled-in versions look like, what changes from the adapter baseline.
+This directory shows the *shape* of a project after the doctrine has been adopted. Nothing here is meant to be run; it is doctrine-only, like the rest of the repo. The point is legibility: what files land where, what the filled-in versions look like, what changes from the adapter baseline.
 
 ## The fictional project
 
@@ -47,10 +47,10 @@ Pick a sync stance and write it down:
 - **Independent.** Treat them as deliberately separate files, where `CLAUDE.md` carries project commands, file-path conventions, and Claude-specific "ask before" boundaries that don't belong in a generic agent baseline. Drift between the two is acceptable as long as the *operating rules* don't contradict.
 - **Generated.** A small script renders one file from the other plus a header. Worth it only if you maintain many agent memory files in the same project.
 
-Don't leave the choice implicit. Drift between memory files is the same problem this harness warns about elsewhere; don't reproduce it inside the example.
+Don't leave the choice implicit. Drift between memory files is the same problem the doctrine warns about elsewhere; don't reproduce it inside the example.
 
 ## What this example is not
 
 - Not a runnable project. There is no `pyproject.toml`, no source code, no migrations.
 - Not a recommendation that your project should look exactly like this. `audra-chat` is one shape; yours will differ.
-- Not a substitute for reading the harness's doctrine. This is the *what*; the *why* lives in `01-engineering-canon/` and the rest of the numbered directories.
+- Not a substitute for reading the doctrine itself. This is the *what*; the *why* lives in `01-engineering-canon/` and the rest of the numbered directories.

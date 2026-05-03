@@ -71,11 +71,11 @@ Example:
 ---
 
 <!--
-This template is part of the AI-Native Engineering Harness:
-https://github.com/eooo-io/ai-native-engineering-harness
+This template is part of the AI-Native Engineering Doctrine:
+https://github.com/eooo-io/ai-native-engineering-doctrine
 
-The harness contains the engineering doctrine that informs these sections.
+The repo contains the engineering doctrine that informs these sections.
 Once you've filled in this `CLAUDE.md`, it stands alone — your project does
-not need access to the harness at runtime, and downstream forks shouldn't
-assume it.
+not need access to the doctrine repo at runtime, and downstream forks
+shouldn't assume it.
 -->

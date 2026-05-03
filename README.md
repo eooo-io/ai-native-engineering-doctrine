@@ -1,8 +1,8 @@
-# AI-Native Engineering Harness
+# AI-Native Engineering Doctrine
 
 A doctrine-only scaffold for engineering standards, agent skills, and review policies that travels between projects.
 
-This is a **fork-and-curate seed**, not a runnable tool. Forkers copy the repo, shape it into their own personal or team version, and carry the result into projects, interviews, contracts, or roles. The harness ships principles, conventions, skills, and adapters as text. Nothing here executes, generates, or validates anything.
+This is a **fork-and-curate seed**, not a runnable tool. Forkers copy the repo, shape it into their own personal or team version, and carry the result into projects, interviews, contracts, or roles. The doctrine ships principles, conventions, skills, and adapters as text. Nothing here executes, generates, or validates anything.
 
 > Wondering if this is for you? See [`WHO-THIS-IS-FOR.md`](./WHO-THIS-IS-FOR.md). Want to see the shape of a project after adoption? See [`examples/imported-into-project/`](./examples/imported-into-project/).
 
@@ -27,7 +27,7 @@ Then come back and read the rest. The templates are scaffolding; the doctrine in
 
 ## Purpose
 
-The harness helps answer a practical question:
+The doctrine helps answer a practical question:
 
 > How do I carry my engineering standards, architecture doctrine, and AI-agent workflows into any project, interview, contract, or role without rewriting the same tribal wisdom every time?
 
@@ -49,7 +49,7 @@ Use it as a portfolio-safe base. Keep sensitive examples, private prompts, clien
 06-cloud-and-delivery/       Docker, Kubernetes, CI/CD, IaC, observability
 07-security-and-secrets/     Security, secrets, dependency, and supply-chain rules
 08-review-rubrics/           Code, architecture, test, and security review rubrics
-examples/                    Worked end-state examples of the harness adopted into a project
+examples/                    Worked end-state examples of the doctrine adopted into a project
 ```
 
 ## How to adopt this

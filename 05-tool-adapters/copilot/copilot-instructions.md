@@ -1,8 +1,8 @@
 # GitHub Copilot Instructions
 
-> **Sketch fidelity.** This file is a starting point for `.github/copilot-instructions.md`. The Claude adapter at `05-tool-adapters/claude/` is the deepest worked example in the harness; this file covers the same ground at the depth Copilot's instructions actually consume. Extend it for your project.
+> **Sketch fidelity.** This file is a starting point for `.github/copilot-instructions.md`. The Claude adapter at `05-tool-adapters/claude/` is the deepest worked example in the doctrine; this file covers the same ground at the depth Copilot's instructions actually consume. Extend it for your project.
 
-Copy the content below into your project's `.github/copilot-instructions.md`. It is deliberately self-contained — your downstream project does not need access to the harness at runtime.
+Copy the content below into your project's `.github/copilot-instructions.md`. It is deliberately self-contained — your downstream project does not need access to the doctrine at runtime.
 
 ---
 

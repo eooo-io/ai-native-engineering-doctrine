@@ -1,6 +1,6 @@
 # SKILL Format
 
-Meta-rule for the harness's agent skills. Every `SKILL.md` under `04-agent-skills/` follows this shape so a model picking from many skills can route correctly, and a forker adding a new skill doesn't have to invent structure.
+Meta-rule for the doctrine's agent skills. Every `SKILL.md` under `04-agent-skills/` follows this shape so a model picking from many skills can route correctly, and a forker adding a new skill doesn't have to invent structure.
 
 ## File layout
 
@@ -20,7 +20,7 @@ description: <one sentence — when to use this skill, not just what it does>
 - `name` is required, kebab-case, and matches the directory name.
 - `description` is required and routing-quality (see below).
 
-Tool-specific adapters may layer additional frontmatter fields on top of these two. The harness canon requires only `name` and `description`.
+Tool-specific adapters may layer additional frontmatter fields on top of these two. The canon requires only `name` and `description`.
 
 ## Body shape
 
@@ -54,4 +54,4 @@ Three places content can live. Use the right one.
 
 ## Authority
 
-This file is the source of truth for the canonical SKILL format used in the harness. Tool-specific adapters (under `05-tool-adapters/`) may layer additional fields, sections, or routing metadata on top, but the required elements above must be preserved.
+This file is the source of truth for the canonical SKILL format used in the doctrine. Tool-specific adapters (under `05-tool-adapters/`) may layer additional fields, sections, or routing metadata on top, but the required elements above must be preserved.
